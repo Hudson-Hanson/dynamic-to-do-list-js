@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to add a task
     function addTask(taskText, save = true) {
-        if (!taskText.trim()) {
+        taskText = taskText.trim(); // Ensure proper formatting
+        if (taskText === "") {
             alert("Please enter a task.");
             return;
         }
@@ -52,12 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Event listener for button click
-    addButton.addEventListener("click", () => addTask(taskInput.value));
+    addButton.addEventListener("click", () => addTask(taskInput.value.trim()));
 
     // Event listener for Enter key
     taskInput.addEventListener("keypress", (event) => {
         if (event.key === "Enter") {
-            addTask(taskInput.value);
+            addTask(taskInput.value.trim());
         }
     });
 
